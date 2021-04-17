@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScheduleJSON"
+             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             x:Class="ScheduleJSON.SchedulePage">
+    <ContentPage.Content>
+        <schedule:SfSchedule x:Name="schedule" 
+        DataSource = "{Binding Meetings}"
+        ScheduleView = "WeekView" >
+            <schedule:SfSchedule.AppointmentMapping>
+                <schedule:ScheduleAppointmentMapping
+                ColorMapping="Color"
+                EndTimeMapping="To"
+                StartTimeMapping="From"
+                SubjectMapping="EventName"
+                IsAllDayMapping="AllDay"/>
+            </schedule:SfSchedule.AppointmentMapping>
+            <schedule:SfSchedule.BindingContext>
+                <local:ViewModel/>
+            </schedule:SfSchedule.BindingContext>
+        </schedule:SfSchedule>
+    </ContentPage.Content>
+</ContentPage>
